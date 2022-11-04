@@ -1,13 +1,16 @@
 import { createTheme } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
 
 let theme = createTheme({
   palette: {
     primary: {
-      main: '#ff0000',
+      main: orange[700],
+      contrastText: "#fff" //button text white instead of black
     },
     secondary: {
-      main: '#00ff00',
+      main: "#ffffff",
     },
+
   },
 });
 
