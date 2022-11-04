@@ -2,11 +2,9 @@ import {bundle} from '@remotion/bundler';
 import {getCompositions, renderMedia} from '@remotion/renderer';
 import express from 'express';
 import path from 'path';
-// import {fileURLToPath} from 'url';
+import url from 'url';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
 const port = 8000;
 const compositionId = 'Comixer';
@@ -16,6 +14,8 @@ const entry = './src/index';
 const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
+
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
 	// Parametrize the video by passing arbitrary props to your component.
@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
 		// Further there will be different compositions for different review sources. For now 'Comixer' is hardcoded
 		const composition = comps.find((c) => c.id === compositionId);
 		const randomName = new Date().valueOf();
-		const outputLocation = `out/${randomName}.mp4`;
+		const outputLocation = `public/${randomName}.mp4`;
 
 		await renderMedia({
 			composition,
@@ -41,8 +41,8 @@ app.get('/', async (req, res) => {
 			inputProps,
 		});
 
-		// TODO
-		res.download;
+		// Sending an object with link to the rendered video
+		res.send({videoOutputLocation: outputLocation});
 	} catch (e) {
 		// Logging err message to console and sending err response to the client.
 		console.log(e.message);
