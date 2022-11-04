@@ -1,5 +1,5 @@
 import {AbsoluteFill} from 'remotion';
-
+import './Comixer.css'
 
 export const Comixer = () => {
 	return (

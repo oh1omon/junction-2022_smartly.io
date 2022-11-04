@@ -1,7 +1,5 @@
 import {Composition} from 'remotion';
-import { Comixer } from './Comixer';
-
-// Each <Composition> is an entry in the sidebar!
+import {Comixer} from './Comixer';
 
 export const RemotionVideo = () => {
 	return (
