@@ -1,12 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Landing from './routes/Landing';
-
+import logo from "./logo.svg";
+import "./App.css";
+import Landing from "./routes/Landing";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import MainConfig from "./routes/MainConfig";
 function App() {
   return (
-    <div className="App">
-        <Landing/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />}></Route>
+        <Route path="/config" element={<MainConfig />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
