@@ -2,9 +2,6 @@ import { createTheme } from "@mui/material/styles";
 import { orange } from "@mui/material/colors";
 
 let theme = createTheme({
-  typography: {
-    fontFamily: ['Urbanist']
-  },
   palette: {
     primary: {
       main: orange[700],
@@ -19,6 +16,7 @@ let theme = createTheme({
     },
   },
   typography: {
+    fontFamily: ['Urbanist'],
     h5: {
       fontSize: 22,
       marginBottom: 15,

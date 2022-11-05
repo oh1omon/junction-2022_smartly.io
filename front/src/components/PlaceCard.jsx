@@ -1,8 +1,13 @@
 import { Box, Checkbox, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const PlaceCard = ({selectedLocation, id, title, content, handleLocationSelect}) => {
-    const isSelected = selectedLocation === id
+    const [isSelected, setIsSelected] = useState(false)
+
+    useEffect(() => {
+        setIsSelected(selectedLocation === id)
+    }, [selectedLocation, id])
+
     const selectLocation = (id) => {
         if (id === selectedLocation) {
             handleLocationSelect('')
@@ -10,6 +15,7 @@ const PlaceCard = ({selectedLocation, id, title, content, handleLocationSelect})
         } 
         handleLocationSelect(id)
     }
+
   return (
     <Box bgcolor={'grey.50'} flex={1} display={'flex'} justifyContent={'space-between'} alignItems={'center'} paddingY={2} paddingX={4} borderRadius={2} boxShadow={1} mb={2} > 
         <Box textAlign={'left'}>
