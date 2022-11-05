@@ -22,7 +22,7 @@ const PlaceSelector = () => {
 
   const vidState = useContext(VidContext);
   useEffect(() => {
-    setCanContinue(selectedLocationId.length > 0)
+    setCanContinue(vidState.selectedLocationId.length > 0)
   }, [vidState.selectedLocationId])
   const navigate = useNavigate();
 
