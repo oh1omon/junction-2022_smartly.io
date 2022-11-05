@@ -9,7 +9,7 @@ export const RemotionVideo = () => {
 	return (
 		<>
 			<Composition
-				id="google-review"
+				id="Comixer"
 				component={Comixer}
 				durationInFrames={durationInFrames}
 				fps={frames}

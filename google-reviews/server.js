@@ -19,7 +19,7 @@ app.use(express.json())
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.get('/', async (req, res) => {
+app.post('/', async (req, res) => {
 	// Parametrize the video by passing arbitrary props to your component.
 	// https://WEBSITE.CUM/?name=Theodore&isAuthor=true =
 	const inputProps = req.body;
