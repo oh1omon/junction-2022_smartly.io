@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -10,9 +10,7 @@ const Input = styled(MuiInput)`
   width: 42px;
 `;
 
-export default function InputSlider({ data }) {
-  const [value, setValue] = React.useState(30);
-
+export default function InputSlider({ info, value, setValue }) {
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -37,10 +35,10 @@ export default function InputSlider({ data }) {
         id="input-slider"
         gutterBottom
       >
-        {data.text}
+        {info.text}
       </Typography>
       <Grid container spacing={2} alignItems="center">
-        <Grid item>{data.icon}</Grid>
+        <Grid item>{info.icon}</Grid>
         <Grid item xs>
           <Slider
             value={typeof value === "number" ? value : 0}
@@ -56,8 +54,8 @@ export default function InputSlider({ data }) {
             onBlur={handleBlur}
             inputProps={{
               step: 10,
-              min: data.min,
-              max: data.max,
+              min: info.min,
+              max: info.max,
               type: "number",
               "aria-labelledby": "input-slider",
             }}

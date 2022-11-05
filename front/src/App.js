@@ -4,15 +4,19 @@ import Landing from "./routes/Landing";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MainConfig from "./routes/MainConfig";
 import PlaceSelector from "./components/PlaceSelector";
+import { VidStateProvider } from "./VidState";
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />}></Route>
-        <Route path="/place" element={<PlaceSelector />}></Route>
-        <Route path="/config" element={<MainConfig />}></Route>
-      </Routes>
-    </Router>
+    <VidStateProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />}></Route>
+          <Route path="/place" element={<PlaceSelector />}></Route>
+          <Route path="/config" element={<MainConfig />}></Route>
+        </Routes>
+      </Router>
+    </VidStateProvider>
   );
 }
 

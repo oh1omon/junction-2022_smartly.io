@@ -8,6 +8,7 @@ export default function ConfigGridTemplate({ header, children }) {
     color: theme.palette.primary.text,
     backgroundColor: theme.palette.grayed.main,
     borderRadius: 10,
+    minHeight: "60vh",
   }));
   return (
     <Grid item xs={4}>

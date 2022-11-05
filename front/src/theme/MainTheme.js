@@ -12,11 +12,11 @@ let theme = createTheme({
     },
     grayed: {
       main: "#f5f5f5",
-      inputsBackground: "#F0F0F0",
+      inputsBackground: "#e0e0e0",
     },
   },
   typography: {
-    fontFamily: ['Urbanist'],
+    fontFamily: ["Urbanist"],
     h5: {
       fontSize: 22,
       marginBottom: 15,

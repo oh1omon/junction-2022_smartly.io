@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ConfigGridTemplate from "../ConfigGridTemplate";
 import {
   Slider,
@@ -12,7 +12,7 @@ import SliderLabeled from "../inputs/SliderLabeled";
 import Video from "@mui/icons-material/SwitchVideo";
 import BasicSelect from "../inputs/BasicSelect";
 import ConfigItem from "../inputs/ConfigItem";
-
+import { VidContext } from "../../VidState";
 export default function VideoProps({ header }) {
   const configData = {
     length: {
@@ -26,14 +26,24 @@ export default function VideoProps({ header }) {
       text: "Video style",
     },
   };
+  const vidState = useContext(VidContext);
+
   return (
     <ConfigGridTemplate header={header}>
       <Stack spacing={1}>
         <ConfigItem>
-          <SliderLabeled data={configData.length} />
+          <SliderLabeled
+            value={vidState.vidLength}
+            setValue={vidState.setVidLength}
+            info={configData.length}
+          />
         </ConfigItem>
         <ConfigItem>
-          <BasicSelect data={configData.vidStyle} />
+          <BasicSelect
+            value={vidState.vidStyle}
+            setValue={vidState.setVidStyle}
+            info={configData.vidStyle}
+          />
         </ConfigItem>
       </Stack>
     </ConfigGridTemplate>

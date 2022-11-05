@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Grid, Button, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TopNotification from "../components/TopNotification";
@@ -17,6 +17,12 @@ export default function MainConfig() {
           <PhotoProps header={"Photo properties"} />
         </Grid>
       </Box>
+      <Button
+        style={{ display: "block", margin: "3rem auto" }}
+        variant={"contained"}
+      >
+        Create
+      </Button>
     </>
   );
 }

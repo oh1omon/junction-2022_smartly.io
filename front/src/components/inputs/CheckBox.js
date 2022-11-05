@@ -3,19 +3,17 @@ import React, { useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
-const CheckBox = () => {
-  const [checked, setChecked] = useState(true);
-
+const CheckBox = ({ label, value, setValue }) => {
+  console.log(value);
   return (
     <FormControlLabel
       control={
         <Checkbox
-          checked={checked}
-          onChange={(e) => setChecked(e.target.checked)}
-          inputProps={{ "aria-label": "secondary checkbox" }}
+          checked={value}
+          onChange={(e) => setValue(e.target.checked)}
         />
       }
-      label="Testing Checkbox"
+      label={label}
     />
   );
 };
