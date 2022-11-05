@@ -4,6 +4,7 @@
 3. Application Default Credentials: https://cloud.google.com/docs/authentication/provide-credentials-adc
 
 # Kubernetes:
+1. Create Dockerfiles for all of the apps
 1. Create Deployments for Remotion, FE and BE
 2. Assign services to all of them.
 3. Ingress should resolve FE by *, API by /api.

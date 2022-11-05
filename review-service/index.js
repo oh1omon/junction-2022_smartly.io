@@ -7,12 +7,12 @@ const __dirname = path.resolve()
 
 dotenv.config()
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 
-app.use(express.static(path.join(__dirname, "client", "build")))
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "client", "build")))
+//
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 
 app.listen(port, () => console.log(`Server started on port ${port}`))
