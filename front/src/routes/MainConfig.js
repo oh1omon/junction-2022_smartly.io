@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import TopNotification from "../components/TopNotification";
 import VideoProps from "../components/configs/VideoProps";
 import ReviewsProps from "../components/configs/ReviewsProps";
+import PhotoProps from "../components/configs/PhotoProps";
 
 export default function MainConfig() {
   return (
@@ -13,7 +14,7 @@ export default function MainConfig() {
         <Grid container spacing={5}>
           <VideoProps header={"Video properties"} />
           <ReviewsProps header={"Reviews properties"} />
-          <VideoProps header={"Video properties"} />
+          <PhotoProps header={"Photo properties"} />
         </Grid>
       </Box>
     </>
