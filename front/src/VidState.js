@@ -24,10 +24,13 @@ const VidStateProvider = ({ children }) => {
   const [tripAdvisorSource, setTripAdvisorSource] = useState(false);
   const [facebookPhotoSource, setFacebookPhotoSource] = useState(false);
   const [ownPhotosSource, setOwnPhotosSource] = useState(false);
+  const [selectedLocationId, setSelectedLocationId] = useState("");
 
   return (
     <VidContext.Provider
       value={{
+        selectedLocationId,
+        setSelectedLocationId,
         companyName,
         setCompanyName,
         advancedEditing,

@@ -9,7 +9,6 @@ import { VidContext } from "../VidState";
 import { useNavigate } from "react-router-dom";
 
 const PlaceSelector = () => {
-  const [selectedLocationId, setSelectedLocationId] = useState('')
   const [canContinue, setCanContinue] = useState(false)
   const [places, setPlaces] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -17,14 +16,14 @@ const PlaceSelector = () => {
 
   useEffect(() => {
     if (searchValue.length > 2) {
-        const matchingPlaces = fetchPlaces(searchValue, setPlaces)
+        fetchPlaces(searchValue, setPlaces)
     }
   }, [searchValue])
 
   const vidState = useContext(VidContext);
   useEffect(() => {
     setCanContinue(selectedLocationId.length > 0)
-  }, [selectedLocationId])
+  }, [vidState.selectedLocationId])
   const navigate = useNavigate();
 
   return (
@@ -38,13 +37,13 @@ const PlaceSelector = () => {
         </Box>
         {!isLoading ? <Box style={{maxHeight:"50vh", overflow:"scroll" }}  mb={2}>
           {places.map((place) => (
-            <PlaceCard key={place.place_id} place={place} selectedLocation={selectedLocationId} handleLocationSelect={setSelectedLocationId} />
+            <PlaceCard key={place.place_id} place={place} selectedLocation={vidState.selectedLocationId} handleLocationSelect={vidState.setSelectedLocationId} />
           ))}
         
         </Box> : <Box flex={1} display={'flex'} alignItems={'center'} justifyContent={'center'}><CircularProgress/></Box>}
         <Button onClick = {(e)=>{
           //When done, move to the next page
-          axios({ url: `http://localhost:5000/api/config/${selectedLocationId}`, method: "POST", data: {} })
+          axios({ url: `http://localhost:5000/api/config/${vidState.selectedLocationId}`, method: "POST", data: {} })
               .then((res) => {
                 const wholeConfig = res.data;
                 vidState.setVidLength(wholeConfig.vidLength);
