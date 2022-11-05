@@ -3,6 +3,4 @@
 2. How to save file to storage
 3. Application Default Credentials: https://cloud.google.com/docs/authentication/provide-credentials-adc
 
-# Kubernetes:
-3. Ingress should resolve FE by *, API by /api.
-4. Remotion should only have internal service
+# Implement remotion deployment and its service, also set up connection from be to it

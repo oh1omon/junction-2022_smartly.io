@@ -11,6 +11,7 @@
   "repository": {},
   "license": "UNLICENSED",
   "dependencies": {
+    "@google-cloud/storage": "^6.7.0",
     "@remotion/cli": "3.2.41",
     "@remotion/eslint-config": "3.2.41",
     "eslint": "^8.14.0",
