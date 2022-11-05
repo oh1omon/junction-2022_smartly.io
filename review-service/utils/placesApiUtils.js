@@ -18,3 +18,13 @@ export const createPlacesRequestConfig = (name) => {
       };
     return placesRequestConfig
 }
+
+export const createPhotosRequestConfig = (reference) => {
+    const photosRequestConfig = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1920&photoreference=${reference}&key=${apiKey}`
+    return photosRequestConfig
+}
+
+export const createRenderRequestConfig = () => {
+    const renderReqestConfig = 'google-reviews-svc:80'
+    return renderReqestConfig
+}
