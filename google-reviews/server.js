@@ -3,11 +3,16 @@ import {getCompositions, renderMedia} from '@remotion/renderer';
 import express from 'express';
 import path from 'path';
 import url from 'url';
+import fs from 'fs';
+import cloudStorage from '@google-cloud/storage';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
 const port = 8000;
 const compositionId = 'Comixer';
+
+const bucketName = 'review-videos';
+const keyPath = './key.json';
 
 // Creating bundle
 const entry = './src/index';
@@ -15,9 +20,14 @@ const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
 
-app.use(express.json())
+app.use(express.json());
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
+
+// Setting this as a health check point
+app.get('/',(req,res)=>{
+	res.send('Hi there from Google reviews server')
+})
 
 app.post('/', async (req, res) => {
 	// Parametrize the video by passing arbitrary props to your component.
@@ -43,11 +53,38 @@ app.post('/', async (req, res) => {
 			inputProps,
 		});
 
-		// Sending an object with link to the rendered video
-		res.send({videoOutputLocation: outputLocation});
+		// Creating Storage reference
+		const storage = new cloudStorage.Storage({keyFilename: keyPath});
+
+		// Creating Bucket reference
+		const bucket = storage.bucket(bucketName);
+
+		// Creating a reference of file for Cloud Storage Bucket
+		const blob = bucket.file(outputLocation.split('/')[1]);
+		const blobStream = blob.createWriteStream();
+
+		blobStream.on('error', (err) => {
+			console.log(err.message);
+			res.status(400).send('Ah shit, error with sending video to google cloud');
+		});
+
+		blobStream.on('finish', () => {
+			// The public URL can be used to directly access the file via HTTP.
+			const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+
+			// Sending an object with link to the rendered video
+			res.status(200).send({videoOutputLocation: publicUrl});
+		});
+
+		fs.readFile(outputLocation, (err, data) => {
+			if (err) console.log(err);
+
+			// Actually sending data to the Bucket
+			blobStream.end(data);
+		});
 	} catch (e) {
 		// Logging err message to console and sending err response to the client.
-		console.log(e.message);
+		console.log(e);
 		res.send(`ERR: ${e.message}`);
 	}
 });
