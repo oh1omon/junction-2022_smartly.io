@@ -2,21 +2,36 @@
   "name": "google-reviews",
   "version": "1.0.0",
   "description": "My Remotion video",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "remotion preview src/index.jsx",
     "build": "remotion render src/index.jsx HelloWorld out/video.mp4",
+    "server": "node server.js",
     "upgrade": "remotion upgrade",
     "test": "eslint src --ext ts,tsx,js,jsx"
   },
   "repository": {},
   "license": "UNLICENSED",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.12",
     "@remotion/cli": "3.2.41",
     "@remotion/eslint-config": "3.2.41",
+    "@remotion/noise": "^3.2.42",
+    "@remotion/renderer": "^3.2.41",
     "eslint": "^8.14.0",
+    "express": "^4.18.2",
+    "iconify": "^1.4.0",
     "prettier": "^2.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "remotion": "3.2.41"
+  },
+  "devDependencies": {
+    "@iconify/react": "^4.0.0",
+    "sass": "^1.56.0"
   }
 }
