@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, Button, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+import VideoProps from "../components/configs/VideoProps";
 export default function MainConfig() {
   const Item = styled(Box)(({ theme }) => ({
     padding: theme.spacing(1),
@@ -11,28 +12,10 @@ export default function MainConfig() {
   }));
   return (
     <Box width={"86%"} mx={"auto"} sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Item>
-            <Typography variant="h5" gutterBottom>
-              Video properties
-            </Typography>
-          </Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>
-            <Typography variant="h5" gutterBottom>
-              Video properties
-            </Typography>
-          </Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item>
-            <Typography variant="h5" gutterBottom>
-              Video properties
-            </Typography>
-          </Item>
-        </Grid>
+      <Grid container spacing={5}>
+        <VideoProps header={"Video properties"} />
+        <VideoProps header={"Video properties"} />
+        <VideoProps header={"Video properties"} />
       </Grid>
     </Box>
   );

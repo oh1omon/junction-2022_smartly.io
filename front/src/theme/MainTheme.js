@@ -15,14 +15,18 @@ let theme = createTheme({
     },
     grayed: {
       main: "#f5f5f5",
+      inputsBackground: "#F0F0F0",
     },
   },
   typography: {
     h5: {
       fontSize: 22,
       marginBottom: 15,
-      marginLeft: 30,
       fontWeight: 600,
+    },
+    caption: {
+      color: orange[700],
+      fontWeight: 500,
     },
   },
 });
