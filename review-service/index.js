@@ -7,7 +7,12 @@ const __dirname = path.resolve()
 
 dotenv.config()
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
+
+// Setting up here this route for halth checks be fine
+app.get('/', (req,res)=>{
+	res.send("Hi there! This is main BE")
+})
 
 // app.use(express.static(path.join(__dirname, "client", "build")))
 //
