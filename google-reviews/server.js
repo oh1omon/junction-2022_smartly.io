@@ -15,12 +15,15 @@ const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
 
+app.use(express.json())
+
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
 	// Parametrize the video by passing arbitrary props to your component.
 	// https://WEBSITE.CUM/?name=Theodore&isAuthor=true =
-	const inputProps = req.query;
+	// const inputProps = req.body;
+	const inputProps = { "reviews": "asd" }
 
 	try {
 		const comps = await getCompositions(bundleLocation, {

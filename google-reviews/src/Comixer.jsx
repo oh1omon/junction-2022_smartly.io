@@ -1,9 +1,10 @@
-import {AbsoluteFill, Audio, Img, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, getInputProps, Img, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import './Comixer.css';
 import { Icon } from '@iconify/react';
 import { Noise } from './Noise';
 
 export const Comixer = () => {
+	const { reviews } = getInputProps()
 	const frame = useCurrentFrame()
 	const { width, height} = useVideoConfig();
 	const imageUrl = 'https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg';
@@ -36,7 +37,7 @@ export const Comixer = () => {
 			{/* First Screen */}
 			<div>
 			<div style={{...absolutePosStyle, top: 80, opacity: titleFade}}>
-				<h1 style={{ fontSize: 100, margin: 0, padding: 0 }}>Joe’s Haircut</h1>
+				<h1 style={{ fontSize: 100, margin: 0, padding: 0 }}>Joe’s Haircut {reviews}</h1>
 				<p style={{ fontSize: 60, margin: 0, padding: 0 }}>Kaczyńskiego 32</p>
 			</div>
 			<div style={{...absolutePosStyle, top: 400, opacity: imageFade}}>
