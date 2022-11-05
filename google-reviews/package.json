@@ -2,6 +2,8 @@
   "name": "google-reviews",
   "version": "1.0.0",
   "description": "My Remotion video",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "remotion preview src/index.jsx",
     "build": "remotion render src/index.jsx HelloWorld out/video.mp4",
