@@ -3,7 +3,7 @@ import ConfigGridTemplate from "../ConfigGridTemplate";
 import {
   Slider,
   Grid,
-  Button,
+  Stack,
   Typography,
   Box,
   FormControlLabel,
@@ -11,6 +11,7 @@ import {
 import SliderLabeled from "../inputs/SliderLabeled";
 import Video from "@mui/icons-material/SwitchVideo";
 import BasicSelect from "../inputs/BasicSelect";
+import ConfigItem from "../inputs/ConfigItem";
 
 export default function VideoProps({ header }) {
   const configData = {
@@ -27,8 +28,14 @@ export default function VideoProps({ header }) {
   };
   return (
     <ConfigGridTemplate header={header}>
-      <SliderLabeled data={configData.length} />
-      <BasicSelect data={configData.vidStyle} />
+      <Stack spacing={1}>
+        <ConfigItem>
+          <SliderLabeled data={configData.length} />
+        </ConfigItem>
+        <ConfigItem>
+          <BasicSelect data={configData.vidStyle} />
+        </ConfigItem>
+      </Stack>
     </ConfigGridTemplate>
   );
 }

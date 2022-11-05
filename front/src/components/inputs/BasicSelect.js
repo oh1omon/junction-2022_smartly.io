@@ -4,7 +4,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import ConfigItem from "./ConfigItem";
 
 export default function BasicSelect({ data }) {
   const [val, setVal] = React.useState("");
@@ -14,15 +13,13 @@ export default function BasicSelect({ data }) {
   };
 
   return (
-    <ConfigItem>
-      <FormControl fullWidth>
-        <InputLabel>{data.text}</InputLabel>
-        <Select value={val} label={data.text} onChange={handleChange}>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </ConfigItem>
+    <FormControl fullWidth>
+      <InputLabel>{data.text}</InputLabel>
+      <Select value={val} label={data.text} onChange={handleChange}>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+    </FormControl>
   );
 }

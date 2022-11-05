@@ -12,9 +12,7 @@ export default function ConfigGridTemplate({ header, children }) {
   return (
     <Grid item xs={4}>
       <StyledGrid>
-        <Typography variant="h5" gutterBottom>
-          {header}
-        </Typography>
+        <Typography variant="h5">{header}</Typography>
         {children}
       </StyledGrid>
     </Grid>
