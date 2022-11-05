@@ -22,8 +22,8 @@ export default function InputSlider({ info, value, setValue }) {
   const handleBlur = () => {
     if (value < 0) {
       setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+    } else if (value > 60) {
+      setValue(60);
     }
   };
 
@@ -44,6 +44,7 @@ export default function InputSlider({ info, value, setValue }) {
             value={typeof value === "number" ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
+            max={info.max}
           />
         </Grid>
         <Grid item>
@@ -53,11 +54,10 @@ export default function InputSlider({ info, value, setValue }) {
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
+              step: 1,
               min: info.min,
               max: info.max,
               type: "number",
-              "aria-labelledby": "input-slider",
             }}
           />
         </Grid>

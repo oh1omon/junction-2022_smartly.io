@@ -10,6 +10,8 @@ export default function ConfigGridTemplate({ header, children }) {
     backgroundColor: theme.palette.grayed.main,
     borderRadius: 10,
     minHeight: "60vh",
+    maxHeight: "60vh",
+    overflow: "scroll",
   }));
 
   const vidState = useContext(VidContext);

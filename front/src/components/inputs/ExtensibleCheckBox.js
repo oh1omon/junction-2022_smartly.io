@@ -30,8 +30,7 @@ export default function ExtensibleCheckBox({
                   <Rating
                     size={"small"}
                     name="half-rating"
-                    defaultValue={2.5}
-                    precision={0.5}
+                    defaultValue={comment.rating}
                   />
                   <Typography variant={"body2"}>{comment.text}</Typography>
                 </Stack>

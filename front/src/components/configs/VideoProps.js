@@ -20,7 +20,7 @@ export default function VideoProps({ header }) {
       icon: <Video />,
       value: 30,
       min: 0,
-      max: 100,
+      max: 60,
     },
     vidStyle: {
       text: "Video style",
