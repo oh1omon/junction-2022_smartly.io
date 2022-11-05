@@ -4,7 +4,6 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 const CheckBox = ({ label, value, setValue }) => {
-  console.log(value);
   return (
     <FormControlLabel
       control={

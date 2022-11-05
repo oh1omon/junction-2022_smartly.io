@@ -6,8 +6,12 @@ import VideoProps from "../components/configs/VideoProps";
 import ReviewsProps from "../components/configs/ReviewsProps";
 import PhotoProps from "../components/configs/PhotoProps";
 import TopSection from "../components/TopSection";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function MainConfig() {
+  const navigate = useNavigate();
   return (
     <>
       <TopNotification />
@@ -20,8 +24,24 @@ export default function MainConfig() {
         </Grid>
       </Box>
       <Button
-        style={{ display: "block", margin: "3rem auto" }}
+        style={{ display: "flex", margin: "3rem auto" }}
         variant={"contained"}
+        endIcon={<ArrowCircleRightIcon />}
+        onClick={() => {
+          axios({
+            url: `http://localhost`,
+            method: "POST",
+            data: {},
+          })
+            .then((res) => {
+              console.log(res);
+
+              navigate("/output");
+            })
+            .catch((err) => {
+              navigate("/output");
+            });
+        }}
       >
         Create
       </Button>

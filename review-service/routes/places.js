@@ -8,12 +8,12 @@ const temp_place_id = "Taco Bell";
 
 // @route   POST api/places
 // @desc    Fetch locations based on provided location name
-router.route("/").post(async (req, finalRes) => {
-  const config = createPlacesRequestConfig(temp_place_id);
+router.route("/:name").post(async (req, finalRes) => {
+  const config = createPlacesRequestConfig(req.params.name);
   axios(config)
     .then((res) => {
-      const places = res.data.results.slice(0, 6)
-      finalRes.status(200).json(places)
+      const places = res.data.results.slice(0, 6);
+      finalRes.status(200).json(places);
     })
     .catch((error) => {
       console.log(error);

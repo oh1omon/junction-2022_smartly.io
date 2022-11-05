@@ -1,19 +1,19 @@
-import express from "express"
-import cors from "cors"
-import reviews from "./routes/reviews.js"
-import places from "./routes/places.js"
-import video from "./routes/video.js"
+import express from "express";
+import cors from "cors";
+import config from "./routes/config.js";
+import places from "./routes/places.js";
+import video from "./routes/video.js";
 
-const app = express()
+const app = express();
 
-app.use(cors())
+app.use(cors());
 
 // For reading JSON (instead of body-parser)
-app.use(express.json())
+app.use(express.json());
 
 // Applying routes here
-app.use("/api/reviews", reviews)
-app.use("/api/places", places)
-app.use("/api/video", video)
+app.use("/api/config", config);
+app.use("/api/places", places);
+app.use("/api/video", video);
 
-export default app
+export default app;

@@ -13,8 +13,8 @@ export default function PhotoProps({ header }) {
     <ConfigGridTemplate header={header}>
       <Box display={"flex"} flexDirection={"column"}>
         <CheckBox
-          value={vidState.googlePhotosSource}
-          setValue={vidState.setGooglePhotosSource}
+          value={vidState.googlePhotoSource}
+          setValue={vidState.setGooglePhotoSource}
           label={"Google Reviews Photos"}
         />
         <CheckBox

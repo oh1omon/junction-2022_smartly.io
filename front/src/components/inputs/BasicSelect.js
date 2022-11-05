@@ -5,20 +5,17 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function BasicSelect({ info }) {
-  const [val, setVal] = React.useState("");
-
+export default function BasicSelect({ info, value, setValue }) {
   const handleChange = (event) => {
-    setVal(event.target.value);
+    setValue(event.target.value);
   };
 
   return (
     <FormControl fullWidth>
       <InputLabel>{info.text}</InputLabel>
-      <Select value={val} label={info.text} onChange={handleChange}>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+      <Select value={value} label={info.text} onChange={handleChange}>
+        <MenuItem value={"light"}>light</MenuItem>
+        <MenuItem value={"dark"}>dark</MenuItem>
       </Select>
     </FormControl>
   );
