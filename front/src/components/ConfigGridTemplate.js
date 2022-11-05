@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Button, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { VidContext } from "../VidState";
 
 export default function ConfigGridTemplate({ header, children }) {
   const StyledGrid = styled(Grid)(({ theme }) => ({
@@ -10,12 +11,15 @@ export default function ConfigGridTemplate({ header, children }) {
     borderRadius: 10,
     minHeight: "60vh",
   }));
+
+  const vidState = useContext(VidContext);
   return (
-    <Grid item xs={4}>
+    <Grid position={"relative"} item xs={4}>
       <StyledGrid>
         <Typography variant="h5">{header}</Typography>
         {children}
       </StyledGrid>
+      <div className={vidState.advancedEditing ? "" : "advancedBlocking"}></div>
     </Grid>
   );
 }

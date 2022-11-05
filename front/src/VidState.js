@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 const VidContext = createContext();
 
 const VidStateProvider = ({ children }) => {
+  const [advancedEditing, setAdvancedEditing] = useState(false);
   //We download it already from the server here
   const [vidLength, setVidLength] = useState(20);
   const [vidStyle, setVidStyle] = useState("style1");
@@ -26,6 +27,8 @@ const VidStateProvider = ({ children }) => {
   return (
     <VidContext.Provider
       value={{
+        advancedEditing,
+        setAdvancedEditing,
         vidLength,
         setVidLength,
         vidStyle,
