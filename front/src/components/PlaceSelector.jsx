@@ -43,7 +43,7 @@ const PlaceSelector = () => {
         </Box> : <Box flex={1} display={'flex'} alignItems={'center'} justifyContent={'center'}><CircularProgress/></Box>}
         <Button onClick = {(e)=>{
           //When done, move to the next page
-          axios({ url: `http://localhost:5000/api/config/${vidState.selectedLocationId}`, method: "POST", data: {} })
+          axios({ url: `http://34.120.52.239/api/config/${vidState.selectedLocationId}`, method: "POST", data: {} })
               .then((res) => {
                 const wholeConfig = res.data;
                 vidState.setVidLength(wholeConfig.vidLength);

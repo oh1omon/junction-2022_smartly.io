@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchPlaces = (name, setPlaces) => {
   axios({
-    url: `http://localhost:5000/api/places/${name}`,
+    url: `http://34.120.52.239/api/places/${name}`,
     method: "POST",
     data: {},
   })

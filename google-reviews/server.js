@@ -8,7 +8,7 @@ import cloudStorage from '@google-cloud/storage';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
-const port = 8000;
+const port = 8080;
 const compositionId = 'Comixer';
 
 const bucketName = 'review-videos';
@@ -60,7 +60,8 @@ app.post('/', async (req, res) => {
 		const bucket = storage.bucket(bucketName);
 
 		// Creating a reference of file for Cloud Storage Bucket
-		const blob = bucket.file(outputLocation.split('/')[1]);
+		const blobName = outputLocation.split('/')[1]
+		const blob = bucket.file(blobName);
 		const blobStream = blob.createWriteStream();
 
 		blobStream.on('error', (err) => {
