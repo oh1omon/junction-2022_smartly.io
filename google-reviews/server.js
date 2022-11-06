@@ -15,7 +15,7 @@ const bucketName = 'review-videos';
 const keyPath = './key.json';
 
 // Creating bundle
-const entry = './src/index';
+const entry = './src/index.jsx';
 const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
