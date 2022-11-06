@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
       - name: "front-sha256-1"
-        image: "eu.gcr.io/junction-hack22esp-7057/front@sha256:4a6f2c9c9cd09fce3f336b88453fb69a376fcc011330126522169a3416d15536"
+        image: "eu.gcr.io/junction-hack22esp-7057/front@sha256:242b9ce9f53296641b7cf4f782f1cf084555968d65ca01da554648f5d904633a"
