@@ -127,9 +127,9 @@ export const Comixer = () => {
 							<p
 								style={{fontSize: 50, margin: 0, padding: 0, paddingBottom: 30}}
 							>
-								{review}
+								{review.text}
 							</p>
-							{Array(5)
+							{Array(review.rating)
 								.fill('')
 								.map(() => (
 									<Icon
