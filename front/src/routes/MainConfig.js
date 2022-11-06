@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Grid, Button, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TopNotification from "../components/TopNotification";
@@ -9,9 +9,12 @@ import TopSection from "../components/TopSection";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { VidContext } from "../VidState";
+
 
 export default function MainConfig() {
   const navigate = useNavigate();
+  const vidState = useContext(VidContext)
   return (
     <>
       <TopNotification />
@@ -28,14 +31,17 @@ export default function MainConfig() {
         variant={"contained"}
         endIcon={<ArrowCircleRightIcon />}
         onClick={() => {
+          const dataToSend = {
+            title: vidState.companyName,
+            placeId: vidState.selectedLocationId
+          }
           axios({
-            url: `http://localhost`,
+            url: `http://34.120.52.239/api/video`,
             method: "POST",
-            data: {},
+            data: dataToSend,
           })
             .then((res) => {
-              console.log(res);
-
+              vidState.setOutcomeSource(res.data)
               navigate("/output");
             })
             .catch((err) => {

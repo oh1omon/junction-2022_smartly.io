@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 const VidContext = createContext();
 
 const VidStateProvider = ({ children }) => {
+  const [outcomeSource, setOutcomeSource] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [advancedEditing, setAdvancedEditing] = useState(false);
   //We download it already from the server here
@@ -55,6 +56,8 @@ const VidStateProvider = ({ children }) => {
         setFacebookPhotoSource,
         ownPhotosSource,
         setOwnPhotosSource,
+        outcomeSource,
+        setOutcomeSource
       }}
     >
       {children}
