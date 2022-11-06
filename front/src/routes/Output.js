@@ -3,11 +3,8 @@ import React, { useContext } from "react";
 import Download from "@mui/icons-material/Download";
 import YouTube from "@mui/icons-material/YouTube";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { VidContext } from "../VidState";
 
 export default function Output() {
-  const vidState = useContext(VidContext)
-  const outcomeSource = vidState.outcomeSource
   return (
     <Grid
       container
@@ -17,7 +14,7 @@ export default function Output() {
     >
       <Grid item justifyContent="center">
         <video style={{ height: "100vh" }} controls>
-          <source src={outcomeSource} type="video/mp4" />
+          <source src="" width={100} type="video/mp4" />
         </video>
       </Grid>
       <Grid marginLeft={2} marginBottom={4} item xs={2}>

@@ -1,5 +1,6 @@
 import {bundle} from '@remotion/bundler';
 import {getCompositions, renderMedia} from '@remotion/renderer';
+import cors from "cors";
 import express from 'express';
 import path from 'path';
 import url from 'url';
@@ -8,7 +9,7 @@ import cloudStorage from '@google-cloud/storage';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
-const port = 8080;
+const port = 5000;
 const compositionId = 'Comixer';
 
 const bucketName = 'review-videos';
@@ -20,6 +21,7 @@ const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/static', express.static(path.join(__dirname, 'public')));

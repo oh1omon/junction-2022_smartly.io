@@ -36,7 +36,7 @@ export default function MainConfig() {
             placeId: vidState.selectedLocationId
           }
           axios({
-            url: `http://34.120.52.239/api/video`,
+            url: `http://localhost:8080/api/video`,
             method: "POST",
             data: dataToSend,
           })

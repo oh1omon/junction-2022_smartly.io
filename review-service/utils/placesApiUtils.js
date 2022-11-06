@@ -25,6 +25,6 @@ export const createPhotosRequestConfig = (reference) => {
 }
 
 export const createRenderRequestConfig = () => {
-    const renderReqestConfig = 'http://google-reviews-svc'
+    const renderReqestConfig = 'http://localhost:5000'
     return renderReqestConfig
 }

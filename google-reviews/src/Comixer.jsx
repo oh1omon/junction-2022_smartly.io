@@ -13,10 +13,10 @@ import {Noise} from './Noise';
 
 export const Comixer = () => {
 	const {reviews, title, address, photos} = getInputProps();
+	console.log(reviews, title, address, photos)
 
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
-	const imageUrl = 'https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg';
 	const absolutePosStyle = {
 		position: 'absolute',
 		marginLeft: 'auto',
@@ -65,7 +65,7 @@ export const Comixer = () => {
 				<div style={{...absolutePosStyle, top: 400, opacity: imageFade}}>
 					<Img
 						style={{height: 1100, width: 700, objectFit: 'cover'}}
-						src={imageUrl}
+						src={photos[0]}
 					/>
 				</div>
 				<div style={{...absolutePosStyle, bottom: 80, opacity: reviewFade}}>
@@ -111,7 +111,7 @@ export const Comixer = () => {
 						borderRadius: 500,
 						opacity: image2Fade,
 					}}
-					src={imageUrl}
+					src={photos[1]}
 				/>
 
 				{reviews.slice(0, 4).map((review, index) => {
@@ -155,7 +155,7 @@ export const Comixer = () => {
 						borderRadius: 500,
 						opacity: image2Fade,
 					}}
-					src={imageUrl}
+					src={photos[0]}
 				/>
 			</div>
 
