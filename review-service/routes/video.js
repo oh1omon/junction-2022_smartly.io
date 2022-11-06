@@ -19,9 +19,9 @@ router.route("/").post(async (req, finalRes) => {
               text: review.text,
             };
           })
-          .slice(0, 11)
-          .filter((review) => review.rating > 3)
-        const photoReferences = placeData.photos.map(photo => photo.photo_reference).slice(0, 5)
+          .filter((review) => review.rating > 3 && review.text.length < 70)
+          .slice(0, 3)
+        const photoReferences = placeData.photos.map(photo => photo.photo_reference).slice(0, 4)
         let photos = []
         let counter = 0
         photoReferences.forEach(ref => {
@@ -30,9 +30,11 @@ router.route("/").post(async (req, finalRes) => {
             axios.get(photosConfig).then(res => {
                 photoUrl = res.request._redirectable._options.href
                 photos.push(photoUrl)
-            }).then(() => {
+            })
+            .then(() => {
                 counter++
-            }).then(() => {
+            })
+            .then(() => {
                 if (counter === photoReferences.length) {
                     const data = {
                         reviews,
@@ -41,7 +43,7 @@ router.route("/").post(async (req, finalRes) => {
                         photos
                     }
                     const renderReqestConfig = createRenderRequestConfig()
-                    axios.post(renderReqestConfig, data).then(res => finalRes.status(200).send(res.data))
+                    axios.post(renderReqestConfig, data).then(resRender => finalRes.status(200).send(resRender.data))
                 }
             })
         })

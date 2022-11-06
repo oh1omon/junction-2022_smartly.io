@@ -12,16 +12,7 @@ import {Icon} from '@iconify/react';
 import {Noise} from './Noise';
 
 export const Comixer = () => {
-	// const {reviews, title, address, photos} = getInputProps();
-	const reviews = [
-		{
-			text: 'asd',
-			rating: 3
-		}
-	]
-	const title = '12313'
-	const address = '12313'
-	const photos = ['https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg', 'https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg', 'https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg', 'https://jeven.fi/wp-content/uploads/2019/09/tacobell-4.jpg']
+	const {reviews, title, address, photos} = getInputProps();
 
 	const frame = useCurrentFrame();
 	const {width, height} = useVideoConfig();
