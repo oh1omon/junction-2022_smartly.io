@@ -3,13 +3,12 @@ import express from "express";
 import { createPhotosRequestConfig, createRenderRequestConfig, createReviewsRequestConfig } from "../utils/placesApiUtils.js";
 
 const router = express.Router();
-const id = 'ChIJN1t_tDeuEmsRUsoyG83frY4'
 
 // @route   POST api/video
 // @desc    Create a video based on properties provided by user
 router.route("/").post(async (req, finalRes) => {
     const { title, placeId } = req.body
-    const config = createReviewsRequestConfig(id);
+    const config = createReviewsRequestConfig(placeId);
     axios(config)
     .then((res) => {
         const placeData = res.data.result;
