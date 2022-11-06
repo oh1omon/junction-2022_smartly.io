@@ -49,13 +49,18 @@ app.post('/', async (req, res) => {
 
 		console.log('video rendering started')
 
-		await renderMedia({
-			composition,
-			serveUrl: bundleLocation,
-			codec: 'h264',
-			outputLocation,
-			inputProps,
-		});
+		try {
+			await renderMedia({
+				composition,
+				serveUrl: bundleLocation,
+				codec: 'h264',
+				outputLocation,
+				inputProps,
+			});
+		} catch (e) {
+			console.log(e)
+		}
+
 
 		console.log('video rendered, starting saving to the cloud')
 
