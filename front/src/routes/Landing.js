@@ -8,7 +8,7 @@ export default function Landing() {
   return (
     <section className='landing_main_divide'>
       <div className="landing_left_side">
-        <Typography variant='h2' fontWeight={'bold'} className="landing_logo">Co.Mixer</Typography>
+        <Typography variant='h2' fontWeight={'bold'} className="landing_logo">Co.Blend</Typography>
         <img className="landing_image" src="/landingmain.jpg"/>
       </div>
         <Box width={"17%"} marginLeft={"3%"} height={"fit-content"} paddingBottom={"2rem"} >
