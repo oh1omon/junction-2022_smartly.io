@@ -25,6 +25,6 @@ export const createPhotosRequestConfig = (reference) => {
 }
 
 export const createRenderRequestConfig = () => {
-    const renderReqestConfig = 'google-reviews-svc:80'
+    const renderReqestConfig = 'google-reviews-svc.default.svc.cluster.local'
     return renderReqestConfig
 }
