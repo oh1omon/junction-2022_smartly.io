@@ -17,4 +17,5 @@ spec:
         app: "google-reviews"
     spec:
       containers:
-      # TODO
+      - name: "google-reviews-sha256-1"
+        image: "eu.gcr.io/junction-hack22esp-7057/google-reviews@sha256:40cfc64d11826a5e1411760acfa2630d5fd6f2cfe4b31adfa81d6db589662155"
