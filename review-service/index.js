@@ -7,7 +7,7 @@ const __dirname = path.resolve();
 
 dotenv.config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 // Setting up here this route for halth checks be fine
 app.get("/", (req, res) => {
