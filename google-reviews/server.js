@@ -15,7 +15,7 @@ const bucketName = 'review-videos';
 const keyPath = './key.json';
 
 // Creating bundle
-const entry = './src/index';
+const entry = './src/index.jsx';
 const bundleLocation = await bundle(path.resolve(entry), () => undefined, {
 	webpackOverride: (config) => config,
 });
@@ -34,6 +34,8 @@ app.post('/', async (req, res) => {
 	// https://WEBSITE.CUM/?name=Theodore&isAuthor=true =
 	const inputProps = req.body;
 
+	console.log('render script started', inputProps)
+
 	try {
 		const comps = await getCompositions(bundleLocation, {
 			// We will use getInputProps() in Remotion react app
@@ -45,24 +47,41 @@ app.post('/', async (req, res) => {
 		const randomName = new Date().valueOf();
 		const outputLocation = `public/${randomName}.mp4`;
 
-		await renderMedia({
-			composition,
-			serveUrl: bundleLocation,
-			codec: 'h264',
-			outputLocation,
-			inputProps,
-		});
+		console.log('video rendering started')
+
+		try {
+			await renderMedia({
+				composition,
+				serveUrl: bundleLocation,
+				codec: 'h264',
+				outputLocation,
+				inputProps,
+			});
+		} catch (e) {
+			console.log(e)
+		}
+
+
+		console.log('video rendered, starting saving to the cloud')
 
 		// Creating Storage reference
 		const storage = new cloudStorage.Storage({keyFilename: keyPath});
 
+		console.log('video rendered, starting saving to the cloud 1')
+
 		// Creating Bucket reference
 		const bucket = storage.bucket(bucketName);
+
+		console.log('video rendered, starting saving to the cloud 2')
+
 
 		// Creating a reference of file for Cloud Storage Bucket
 		const blobName = outputLocation.split('/')[1]
 		const blob = bucket.file(blobName);
 		const blobStream = blob.createWriteStream();
+
+		console.log('video rendered, starting saving to the cloud 3')
+
 
 		blobStream.on('error', (err) => {
 			console.log(err.message);
