@@ -17,4 +17,4 @@ spec:
     spec:
       containers:
       - name: "review-service-sha256-1"
-        image: "eu.gcr.io/junction-hack22esp-7057/review-service@sha256:d5939b7c7d4655ed5fc64040a6549527a35b0eab5a93944306e48dd13b269a0b"
+        image: "eu.gcr.io/junction-hack22esp-7057/review-service@sha256:819920bcbbab0c9d809dc1a3ea498afc18396927e6210924c5e7948ea1429d05"
