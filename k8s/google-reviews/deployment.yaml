@@ -1,4 +1,3 @@
-
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
@@ -18,4 +17,4 @@ spec:
     spec:
       containers:
       - name: "google-reviews-sha256-1"
-        image: "eu.gcr.io/junction-hack22esp-7057/google-reviews@sha256:40cfc64d11826a5e1411760acfa2630d5fd6f2cfe4b31adfa81d6db589662155"
+        image: "eu.gcr.io/junction-hack22esp-7057/google-reviews@sha256:71b4dfb008e5d098efdfd9b3e5b8ad1c3d810b8ac4ece1910fdd71f9bf803b46"
